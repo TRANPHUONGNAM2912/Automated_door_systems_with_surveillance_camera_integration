@@ -1,0 +1,53 @@
+# Các file/thư mục của hệ thống
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# File backup của Altium Designer
+__Previews/
+*.PrjPCBStructure
+Project Logs*/
+Project Outputs*/
+*.SchDocPreview
+*.PcbDocPreview
+History/
+
+# File build của Arduino
+*.bin
+*.hex
+*.elf
+*.map
+*.lss
+
+# File build và thư mục của Android
+*.apk
+*.aab
+*.aar
+.gradle/
+/build/
+/mobile_app/src/app/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# Các file thư viện cỡ lớn (nếu cần)
+# *.h
+# *.cpp
+
+# Firebase và các file cấu hình nhạy cảm
+google-services.json
+firebase-config.json
+firebase_config.h 
+
+# Hướng dẫn cài đặt GitHub - chỉ dùng cục bộ
+github_setup.txt 

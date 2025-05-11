@@ -1,0 +1,22 @@
+# Thông tin tác giả
+
+## Tên tác giả
+Trần Phương Nam
+
+## Liên hệ
+Email: tranphuongnam292003@gmail.com
+
+## Dự án
+Hệ thống Cửa Tự động Kết hợp Camera Giám sát
+
+## Mô tả
+Dự án này phát triển một hệ thống cửa tự động thông minh có tích hợp camera giám sát. Hệ thống cho phép người dùng điều khiển cửa từ xa thông qua ứng dụng di động, đồng thời giám sát khu vực thông qua camera ESP32-CAM.
+
+## Các chức năng chính
+- Điều khiển cửa tự động qua ứng dụng điện thoại
+- Hỗ trợ nhiều phương thức xác thực: mật khẩu, thẻ RFID, vân tay
+- Giám sát video trực tiếp từ camera
+- Cảnh báo an ninh khi phát hiện xâm nhập trái phép
+
+## Ngày hoàn thành
+2025 
