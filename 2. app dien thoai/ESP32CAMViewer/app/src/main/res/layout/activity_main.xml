@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Time display at the top -->
+    <TextView
+        android:id="@+id/timeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="12dp"
+        android:background="#80000000"
+        android:padding="8dp"
+        android:text="00/00/0000 00:00:00"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <!-- Door Control Buttons -->
+    <LinearLayout
+        android:id="@+id/doorControlLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+        android:orientation="horizontal"
+        android:background="#80000000"
+        android:padding="8dp"
+        android:elevation="4dp">
+
+        <Button
+            android:id="@+id/openDoorButton"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:text="🔓 MỞ CỬA"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#4CAF50" />
+
+        <Button
+            android:id="@+id/closeDoorButton"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:text="🔒 ĐÓNG CỬA"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#F44336" />
+    </LinearLayout>
+
+    <!-- Overlay controls that can be hidden -->
+    <LinearLayout
+        android:id="@+id/controlsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="#80000000"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/ipAddressInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Nhập địa chỉ IP (vd: 192.168.1.10)"
+            android:inputType="text"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#CCCCCC" />
+
+        <Button
+            android:id="@+id/connectButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kết nối" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/toggleControlsButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:text="✏️"
+        android:alpha="0.5" />
+
+    <Button
+        android:id="@+id/settingsButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:text="⚙️"
+        android:alpha="0.5" />
+
+</RelativeLayout>

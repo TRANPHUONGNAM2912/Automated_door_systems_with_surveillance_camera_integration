@@ -1,0 +1,3 @@
+Change Component Designator: OldDesignator=C? NewDesignator=C3
+Change Component Designator: OldDesignator=C? NewDesignator=C6
+Added Member To Class: ClassName=AutoDoor_App Member=Component C6 100uF/16v

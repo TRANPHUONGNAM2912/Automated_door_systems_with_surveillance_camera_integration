@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "778707599783",
+    "firebase_url": "https://esp32-cam-d2349-default-rtdb.firebaseio.com",
+    "project_id": "esp32-cam-d2349",
+    "storage_bucket": "esp32-cam-d2349.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778707599783:android:8c57588bbd685a14287682",
+        "android_client_info": {
+          "package_name": "com.example.esp32camviewer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaCgTyUFkl1qRgja3MM1sqozPShZ3-SPI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

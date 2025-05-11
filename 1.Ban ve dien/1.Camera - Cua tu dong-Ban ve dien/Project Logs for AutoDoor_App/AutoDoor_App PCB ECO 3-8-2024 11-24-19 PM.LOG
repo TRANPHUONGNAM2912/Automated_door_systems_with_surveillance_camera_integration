@@ -1,0 +1,95 @@
+Removed Pin From Net: NetName=VCC Pin=ADC1-1
+Removed Pin From Net: NetName=GND Pin=ADC1-2
+Removed Pin From Net: NetName=ADC1 Pin=ADC1-3
+Removed Pin From Net: NetName=VCC Pin=ADC2-1
+Removed Pin From Net: NetName=GND Pin=ADC2-2
+Removed Pin From Net: NetName=ADC2 Pin=ADC2-3
+Removed Pin From Net: NetName=Bt_Fan Pin=BT_Fan1-1
+Removed Pin From Net: NetName=GND Pin=BT_Fan1-2
+Removed Pin From Net: NetName=Bt_Spare_out1 Pin=BT_Spare_out1-1
+Removed Pin From Net: NetName=GND Pin=BT_Spare_out1-2
+Removed Pin From Net: NetName=Bt_Spare_out2 Pin=BT_spare_out2-1
+Removed Pin From Net: NetName=GND Pin=BT_spare_out2-2
+Removed Pin From Net: NetName=3V3 Pin=C3-1
+Removed Pin From Net: NetName=GND Pin=C3-2
+Removed Pin From Net: NetName=12V Pin=C5-1
+Removed Pin From Net: NetName=GND Pin=C5-2
+Removed Pin From Net: NetName=GND Pin=IC1-1
+Removed Pin From Net: NetName=3V3 Pin=IC1-2
+Removed Pin From Net: NetName=VCC Pin=IC1-3
+Removed Pin From Net: NetName=12V Pin=LED1-1
+Removed Pin From Net: NetName=12V Pin=LED2-1
+Removed Pin From Net: NetName=12V Pin=LED3-1
+Removed Pin From Net: NetName=12V Pin=LED5-1
+Removed Pin From Net: NetName=12V Pin=Spare_out2-1
+Removed Pin From Net: NetName=GND Pin=SW4-1
+Removed Pin From Net: NetName=Bt_Spare_out1 Pin=SW4-2
+Removed Pin From Net: NetName=GND Pin=SW4-3
+Removed Pin From Net: NetName=Bt_Spare_out1 Pin=SW4-4
+Removed Pin From Net: NetName=GND Pin=SW5-1
+Removed Pin From Net: NetName=Bt_Spare_out2 Pin=SW5-2
+Removed Pin From Net: NetName=GND Pin=SW5-3
+Removed Pin From Net: NetName=Bt_Spare_out2 Pin=SW5-4
+Removed Pin From Net: NetName=GND Pin=SW6-1
+Removed Pin From Net: NetName=Bt_Fan Pin=SW6-2
+Removed Pin From Net: NetName=GND Pin=SW6-3
+Removed Pin From Net: NetName=Bt_Fan Pin=SW6-4
+Removed Pin From Net: NetName=Led1 Pin=ULN1-1
+Removed Pin From Net: NetName=Led2 Pin=ULN1-2
+Removed Pin From Net: NetName=Spare_out2 Pin=ULN1-3
+Removed Pin From Net: NetName=GND Pin=ULN1-9
+Removed Pin From Net: NetName=12V Pin=ULN1-10
+Removed Member From Class: ClassName=SmartHome Member=ADC1
+Removed Member From Class: ClassName=SmartHome Member=ADC2
+Removed Member From Class: ClassName=SmartHome Member=BT_Fan1
+Removed Member From Class: ClassName=SmartHome Member=BT_Spare_out1
+Removed Member From Class: ClassName=SmartHome Member=BT_spare_out2
+Removed Member From Class: ClassName=SmartHome Member=C6
+Removed Member From Class: ClassName=SmartHome Member=C7
+Removed Member From Class: ClassName=SmartHome Member=IC1
+Removed Member From Class: ClassName=SmartHome Member=LED3
+Removed Member From Class: ClassName=SmartHome Member=LED5
+Removed Member From Class: ClassName=SmartHome Member=LED6
+Removed Member From Class: ClassName=SmartHome Member=LED7
+Removed Member From Class: ClassName=SmartHome Member=R5
+Removed Member From Class: ClassName=SmartHome Member=R6
+Removed Member From Class: ClassName=SmartHome Member=R7
+Removed Member From Class: ClassName=SmartHome Member=Spare_out2
+Removed Member From Class: ClassName=SmartHome Member=SW4
+Removed Member From Class: ClassName=SmartHome Member=SW5
+Removed Member From Class: ClassName=SmartHome Member=SW6
+Removed Member From Class: ClassName=SmartHome Member=ULN1
+Change Component Designator: OldDesignator=2k2 NewDesignator=1
+Change Component Designator: OldDesignator=3k3 NewDesignator=2
+Change Component Designator: OldDesignator=C1 NewDesignator=C2
+Change Component Designator: OldDesignator=C2 NewDesignator=C3
+Change Component Designator: OldDesignator=C6 NewDesignator=C5
+Change Component Designator: OldDesignator=C7 NewDesignator=C1
+Change Component Designator: OldDesignator=Cong tac NewDesignator=Cong tac1
+Change Component Designator: OldDesignator=DHT1 NewDesignator=SS1
+Change Component Designator: OldDesignator=Gas_SS1 NewDesignator=SS2
+Change Component Designator: OldDesignator=LED6 NewDesignator=LED1
+Change Component Designator: OldDesignator=LED7 NewDesignator=LED2
+Change Component Designator: OldDesignator=R4 NewDesignator=R1
+Change Component Designator: OldDesignator=R5 NewDesignator=R2
+Change Component Designator: OldDesignator=R6 NewDesignator=R3
+Change Component Designator: OldDesignator=R7 NewDesignator=R4
+Change component parameters (AddParameter): Name = "Ma_Hang"; Value = "MH001036"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ten"; Value = "Nút Nh?n 2 Chân 3x6x2.5MM SMD"; VariantName = "[No Variations]"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Ma_Hang"; Value = "MH001036"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ten"; Value = "Nút Nh?n 2 Chân 3x6x2.5MM SMD"; VariantName = "[No Variations]"
+Added Component: Designator=LCD1(LCD16X2N)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=3V3 Pin=MD1-1
+Change Net Name : Old Net Name=DHT11 New Net Name=SS1
+Change Net Name : Old Net Name=Gas_SS New Net Name=SS2
+Change Net Name : Old Net Name=Net2k2_1 New Net Name=Net1_1
+Change Net Name : Old Net Name=NetCong tac_1 New Net Name=NetCong tac1_1
+Change Net Name : Old Net Name=NetCong tac_2 New Net Name=NetCong tac1_2
+Change Net Name : Old Net Name=NetLED6_2 New Net Name=NetLED1_2
+Change Net Name : Old Net Name=NetLED7_2 New Net Name=NetLED2_2
+Change Class Name : Old Net Name=SmartHome New Net Name=AutoDoor_App
+Added Member To Class: ClassName=AutoDoor_App Member=Component LCD1 LCD 16x2
+Change Room Name: Old Name=SmartHome New Name=AutoDoor_App
+Change Room Scope: Old Scope=InComponentClass('SmartHome') New Scope=InComponentClass('AutoDoor_App')
