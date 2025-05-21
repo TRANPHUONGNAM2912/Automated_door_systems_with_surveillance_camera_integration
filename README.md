@@ -84,7 +84,7 @@ Dự án này là một giải pháp hoàn chỉnh cho hệ thống cửa tự �
 - Nút bấm chuông
 - Các cảm biến phụ trợ
 
-![Sơ đồ kết nối](docs/images/Picture2.png)
+![Sơ đồ kết nối](docs/images/picture.png)
 ## 🚀 Cài đặt
 
 ### Yêu cầu phần cứng
