@@ -1,8 +1,24 @@
 # Hệ thống Cửa Tự động Kết hợp Camera Giám sát
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Arduino](https://img.shields.io/badge/Arduino-ESP32-blue.svg)](https://www.arduino.cc/)
+[![Firebase](https://img.shields.io/badge/Firebase-Realtime-orange.svg)](https://firebase.google.com/)
+
 Dự án này là một giải pháp hoàn chỉnh cho hệ thống cửa tự động thông minh có tích hợp camera giám sát. Hệ thống cho phép người dùng điều khiển cửa từ xa thông qua ứng dụng di động, đồng thời giám sát khu vực thông qua camera ESP32-CAM.
 
-## Tính năng
+![Hình ảnh tổng quan hệ thống](docs/images/Picture1.png)
+
+## 📋 Mục lục
+- [Tính năng](#tính-năng)
+- [Cấu trúc thư mục](#cấu-trúc-thư-mục)
+- [Thành phần phần cứng](#thành-phần-phần-cứng)
+- [Cài đặt](#cài-đặt)
+- [Phát triển](#phát-triển)
+- [Đóng góp](#đóng-góp)
+- [Tác giả](#tác-giả)
+- [Giấy phép](#giấy-phép)
+
+## ✨ Tính năng
 
 ### Đa dạng phương thức xác thực
 - Sử dụng mật khẩu để mở cửa thông qua keypad
@@ -34,7 +50,7 @@ Dự án này là một giải pháp hoàn chỉnh cho hệ thống cửa tự �
 - Giao tiếp qua Firebase
 - Giao diện LCD hiển thị trạng thái tại chỗ
 
-## Cấu trúc thư mục
+## 📁 Cấu trúc thư mục
 
 ```
 /
@@ -55,7 +71,7 @@ Dự án này là một giải pháp hoàn chỉnh cho hệ thống cửa tự �
     └── user_manual/             # Hướng dẫn sử dụng
 ```
 
-## Thành phần phần cứng
+## 🔧 Thành phần phần cứng
 
 - ESP32 (điều khiển chính)
 - ESP32-CAM (camera và xử lý hình ảnh)
@@ -68,7 +84,8 @@ Dự án này là một giải pháp hoàn chỉnh cho hệ thống cửa tự �
 - Nút bấm chuông
 - Các cảm biến phụ trợ
 
-## Cài đặt
+
+## 🚀 Cài đặt
 
 ### Yêu cầu phần cứng
 - Board ESP32
@@ -76,12 +93,18 @@ Dự án này là một giải pháp hoàn chỉnh cho hệ thống cửa tự �
 - Các thành phần điện tử khác theo sơ đồ mạch
 
 ### Cài đặt firmware
-1. Cài đặt Arduino IDE
-2. Thêm thư viện ESP32 và các thư viện phụ thuộc
+1. Cài đặt [Arduino IDE](https://www.arduino.cc/en/software)
+2. Thêm thư viện ESP32 2.0.17 và các thư viện phụ thuộc:
+   - FirebaseESP32
+   - MFRC522
+   - Adafruit Fingerprint Sensor
+   - ESP32Servo
+   - Keypad & Keypad_I2C
+   - LiquidCrystal_I2C
 3. Cấu hình Firebase:
    - Tạo dự án Firebase trên [Firebase Console](https://console.firebase.google.com/)
-   - Trong thư mục `firmware/esp32_main`, mở file `firebase_config.h` và cập nhật:
-     ```
+   - Trong thư mục `firmware/esp32_main/esp_esp32cam`, mở file `firebase_config.h` và cập nhật:
+     ```cpp
      #define FIREBASE_HOST "your-firebase-project-id.firebaseio.com"
      #define FIREBASE_AUTH "your-firebase-secret-key"
      ```
@@ -96,7 +119,7 @@ Dự án này là một giải pháp hoàn chỉnh cho hệ thống cửa tự �
 2. Cài đặt file APK trên thiết bị Android
 3. Cấu hình kết nối đến hệ thống
 
-## Phát triển
+## 💻 Phát triển
 
 ### Môi trường phát triển
 - Arduino IDE (firmware)
@@ -104,18 +127,41 @@ Dự án này là một giải pháp hoàn chỉnh cho hệ thống cửa tự �
 - Altium Designer (thiết kế phần cứng)
 
 ### Thư viện yêu cầu
-- Firebase ESP32 Client
-- ESP32 Camera Driver
-- MFRC522 (RFID)
-- Adafruit Fingerprint Sensor
-- ESP32 Servo
-- Keypad & Keypad I2C
-- LiquidCrystal I2C
+- [Firebase ESP32 Client](https://github.com/mobizt/Firebase-ESP32)
+- [ESP32 Camera Driver](https://github.com/espressif/esp32-camera)
+- [MFRC522](https://github.com/miguelbalboa/rfid)
+- [Adafruit Fingerprint Sensor](https://github.com/adafruit/Adafruit-Fingerprint-Sensor-Library)
+- [ESP32 Servo](https://github.com/madhephaestus/ESP32Servo)
+- [Keypad](https://github.com/Chris--A/Keypad)
+- [LiquidCrystal I2C](https://github.com/johnrickman/LiquidCrystal_I2C)
 
-## Tác giả
+### Kiến trúc phần mềm
+Phần mềm được thiết kế theo mô hình hướng đối tượng với các module độc lập:
 
-- Trần Phương Nam - tranphuongnam292003@gmail.com
+- **Display**: Quản lý màn hình LCD
+- **DoorControl**: Điều khiển cửa và servo
+- **RFIDManager**: Quản lý thẻ RFID
+- **FingerprintManager**: Quản lý cảm biến vân tay
+- **KeypadManager**: Quản lý bàn phím và mật khẩu
+- **NetworkManager**: Quản lý kết nối WiFi và Firebase
+- **BuzzerManager**: Quản lý hệ thống chuông báo động
+- **ButtonManager**: Quản lý các nút nhấn
+- **DoorSystem**: Lớp chính điều phối tất cả các module
 
-## Giấy phép
+## 🤝 Đóng góp
 
-Dự án này được phân phối dưới giấy phép MIT. Xem file `LICENSE` để biết thêm chi tiết. 
+Đóng góp của bạn sẽ giúp dự án trở nên tốt hơn! Dưới đây là các bước để đóng góp:
+
+1. Fork dự án
+2. Tạo nhánh tính năng mới (`git checkout -b feature/amazing-feature`)
+3. Commit thay đổi của bạn (`git commit -m 'Add some amazing feature'`)
+4. Push lên nhánh (`git push origin feature/amazing-feature`)
+5. Mở Pull Request
+
+## 👨‍💻 Tác giả
+
+- **Trần Phương Nam** - [GitHub](https://github.com/yourusername) - tranphuongnam292003@gmail.com
+
+## 📄 Giấy phép
+
+Dự án này được phân phối dưới giấy phép MIT. Xem file [`LICENSE`](LICENSE) để biết thêm chi tiết. 
