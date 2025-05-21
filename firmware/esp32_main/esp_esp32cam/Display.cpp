@@ -172,7 +172,7 @@ void Display::showFingerprintEnrollID(uint8_t id) {
 
 void Display::showFingerprintPlacePrompt() {
     // Hiển thị khi bắt đầu quá trình lấy mẫu vân tay
-    // Không có trong code gốc, thêm nếu cần
+    
 }
 
 void Display::showFingerprintRemovePrompt() {
@@ -200,7 +200,7 @@ void Display::showFingerprintMismatch() {
 
 void Display::showFingerprintStored() {
     // Hiển thị khi lưu vân tay thành công
-    // Không có trong code gốc, thêm nếu cần
+   
     showWelcomeScreen();
 }
 
