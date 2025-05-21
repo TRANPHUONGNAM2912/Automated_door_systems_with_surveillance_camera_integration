@@ -84,7 +84,7 @@ Dự án này là một giải pháp hoàn chỉnh cho hệ thống cửa tự �
 - Nút bấm chuông
 - Các cảm biến phụ trợ
 
-
+![Sơ đồ kết nối](docs/images/Picture2.png)
 ## 🚀 Cài đặt
 
 ### Yêu cầu phần cứng
@@ -160,7 +160,7 @@ Phần mềm được thiết kế theo mô hình hướng đối tượng với
 
 ## 👨‍💻 Tác giả
 
-- **Trần Phương Nam** - [GitHub](https://github.com/yourusername) - tranphuongnam292003@gmail.com
+- **Trần Phương Nam** - [GitHub](https://github.com/tranphuongnam2912) - tranphuongnam292003@gmail.com
 
 ## 📄 Giấy phép
 
