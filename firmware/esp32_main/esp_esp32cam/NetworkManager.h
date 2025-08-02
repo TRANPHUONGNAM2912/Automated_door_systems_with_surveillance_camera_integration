@@ -28,7 +28,12 @@ private:
     bool firebaseInitialized;
     bool doorStreamStarted;
     bool lastDoorStatus;
+    unsigned long lastReconnectAttempt;
+    int reconnectAttempts;
     
+    // Private methods for improved connection handling
+    bool connectToWiFi();
+    bool initializeFirebase();
     void setupDoorStatusStream();
     static void doorStatusCallback(StreamData data);
     static void doorStreamTimeoutCallback(bool timeout);
@@ -43,6 +48,10 @@ public:
     void updateWarningStatus(const char* warningType, bool isActive);
     void initializeWarningStates();
     void reconnectIfNeeded();
+    
+    // Connection status methods
+    int getSignalStrength() const;
+    String getConnectionInfo() const;
     
     // Setter để thiết lập callback function
     void setDoorStatusCallback(StreamDataCallback callback);
