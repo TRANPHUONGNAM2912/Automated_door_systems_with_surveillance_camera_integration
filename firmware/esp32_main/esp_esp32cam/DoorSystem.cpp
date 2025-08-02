@@ -13,7 +13,8 @@
 
 DoorSystem::DoorSystem() : 
     doorIsOpen(false),
-    adminMode(false) {
+    adminMode(false),
+    lastSystemCheck(0) {
     
     // Khởi tạo các đối tượng quản lý
     display = new Display(0x27, 16, 2);
@@ -28,6 +29,8 @@ DoorSystem::DoorSystem() :
     networkManager = new NetworkManager();
     buzzerManager = new BuzzerManager();
     buttonManager = new ButtonManager();
+    securityManager = new SecurityManager();
+    otaManager = new OTAManager("AutoDoorSystem_" + String((uint32_t)ESP.getEfuseMac()), "admin123");
 }
 
 DoorSystem::~DoorSystem() {
@@ -39,6 +42,8 @@ DoorSystem::~DoorSystem() {
     delete networkManager;
     delete buzzerManager;
     delete buttonManager;
+    delete securityManager;
+    delete otaManager;
 }
 
 void DoorSystem::init() {
@@ -74,11 +79,19 @@ void DoorSystem::update() {
     buzzerManager->update();
     networkManager->reconnectIfNeeded();
     
+    // Xử lý OTA updates
+    if (otaManager->isEnabled()) {
+        otaManager->handle();
+    }
+    
     // Xử lý các sự kiện đầu vào
     handleKeypadInput();
     handleFingerprintScan();
     handleRFIDScan();
     handleButtonPress();
+    
+    // Kiểm tra hệ thống định kỳ
+    performSystemCheck();
 }
 
 void DoorSystem::handleKeypadInput() {
@@ -340,5 +353,89 @@ void DoorSystem::handleButtonPress() {
 
 void DoorSystem::handleAdminMode(char key) {
     // Xử lý các lệnh trong chế độ admin
-    // Chưa triển khai
+    switch (key) {
+        case '1':
+            // Enable OTA
+            enableOTA();
+            display->showMessage("OTA Enabled", "");
+            break;
+        case '2':
+            // Disable OTA
+            disableOTA();
+            display->showMessage("OTA Disabled", "");
+            break;
+        case '3':
+            // Show system status
+            display->showMessage("System Status", getSystemStatus());
+            break;
+        case '#':
+            // Exit admin mode
+            adminMode = false;
+            display->showWelcomeScreen();
+            Serial.println(F("Exited admin mode"));
+            break;
+        default:
+            display->showMessage("Admin Menu", "1:OTA 2:OFF 3:STS");
+            break;
+    }
+}
+
+void DoorSystem::performSystemCheck() {
+    unsigned long currentTime = millis();
+    
+    // Kiểm tra hệ thống mỗi 60 giây
+    if (currentTime - lastSystemCheck > 60000) {
+        lastSystemCheck = currentTime;
+        
+        Serial.println(F("=== System Check ==="));
+        
+        // Kiểm tra memory
+        uint32_t freeHeap = ESP.getFreeHeap();
+        Serial.printf("Free Heap: %d bytes\n", freeHeap);
+        
+        // Kiểm tra WiFi
+        if (networkManager->isWiFiConnected()) {
+            Serial.printf("WiFi: Connected (%d dBm)\n", networkManager->getSignalStrength());
+        } else {
+            Serial.println(F("WiFi: Disconnected"));
+        }
+        
+        // Kiểm tra Firebase
+        if (networkManager->isFirebaseInitialized()) {
+            Serial.println(F("Firebase: Connected"));
+        } else {
+            Serial.println(F("Firebase: Disconnected"));
+        }
+        
+        // Cập nhật system status lên Firebase
+        if (networkManager->isFirebaseInitialized()) {
+            String status = getSystemStatus();
+            // networkManager->updateSystemStatus(status); // TODO: implement this
+        }
+        
+        Serial.println(F("=== End System Check ==="));
+    }
+}
+
+String DoorSystem::getSystemStatus() const {
+    String status = "";
+    status += "Heap:" + String(ESP.getFreeHeap()) + "B ";
+    status += "WiFi:" + (networkManager->isWiFiConnected() ? "OK" : "ERR") + " ";
+    status += "FB:" + (networkManager->isFirebaseInitialized() ? "OK" : "ERR") + " ";
+    status += "Door:" + (doorIsOpen ? "OPEN" : "CLOSED");
+    return status;
+}
+
+void DoorSystem::enableOTA() {
+    if (networkManager->isWiFiConnected()) {
+        otaManager->enable();
+        Serial.println(F("OTA enabled"));
+    } else {
+        Serial.println(F("Cannot enable OTA: WiFi not connected"));
+    }
+}
+
+void DoorSystem::disableOTA() {
+    otaManager->disable();
+    Serial.println(F("OTA disabled"));
 } 

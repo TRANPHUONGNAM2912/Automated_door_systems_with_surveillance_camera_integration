@@ -18,6 +18,8 @@
 #include "NetworkManager.h"
 #include "BuzzerManager.h"
 #include "ButtonManager.h"
+#include "SecurityManager.h"
+#include "OTAManager.h"
 
 class DoorSystem {
 private:
@@ -29,10 +31,13 @@ private:
     NetworkManager* networkManager;
     BuzzerManager* buzzerManager;
     ButtonManager* buttonManager;
+    SecurityManager* securityManager;
+    OTAManager* otaManager;
     
     // Các biến trạng thái hệ thống
     bool doorIsOpen;
     bool adminMode;
+    unsigned long lastSystemCheck;
     
     // Các phương thức xử lý sự kiện
     void handleKeypadInput();
@@ -40,6 +45,7 @@ private:
     void handleRFIDScan();
     void handleButtonPress();
     void handleAdminMode(char key);
+    void performSystemCheck();
     
 public:
     DoorSystem();
@@ -47,6 +53,11 @@ public:
     
     void init();
     void update();
+    
+    // System status methods
+    String getSystemStatus() const;
+    void enableOTA();
+    void disableOTA();
 };
 
 #endif // DOOR_SYSTEM_H 
